@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Отправить сообщение</title>
+		<meta charset="utf-8">
+
+		<style>
+			body {
+				background-color: #1fcdcb;
+			}
+
+			.parent_form_block {
+				display: flex;
+				justify-content: center;
+			}
+
+			.text {
+				border: 0;
+				border-radius: 5px;
+				color: black;
+				font-size: 18px;
+				font-weight: 500;
+				padding: 5px;
+			}
+
+			.btn_send {
+				border: 0;
+				border-radius: 5px;
+				height: 60px;
+				width: 200px;
+				margin-top: 50px;
+				font-size: 20px;
+				font-weight: 500;
+				cursor: pointer;
+				transition: all 500ms ease;
+				color: #1fcdcb;
+				background: white;
+			}
+
+			.btn_send:hover {
+				color: white;
+				background: #1fcdcb;
+			}
+		</style>
+
+		<script src="https://telegram.org/js/telegram-web-app.js"></script>
+		<script>
+			let tg = window.Telegram.WebApp;
+			let send = document.getElementById("btn_send");
+			tg.expand();
+
+			send.addEventListener("click", () => {
+				tg.close();
+			});
+		</script>
+	</head>
+	<body>
+		<div class="parent_form_block">
+			<div class="child_form_block">
+				<form id="form_send_message">
+					<textarea rows="10" cols="45" id="text" class="text" name="text"></textarea>
+					<br />
+					<center><input type="button" id="btn_send" class="btn_send" value="Отправить"></center>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
