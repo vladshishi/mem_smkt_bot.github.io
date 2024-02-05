@@ -9,6 +9,12 @@
 				background-color: #1fcdcb;
 			}
 
+			h3 {
+				text-align: center;
+				color: white;
+				font-weight: 500;
+			}
+
 			.parent_form_block {
 				display: flex;
 				justify-content: center;
@@ -28,7 +34,7 @@
 				border-radius: 5px;
 				height: 60px;
 				width: 200px;
-				margin-top: 50px;
+				margin-top: 35px;
 				font-size: 20px;
 				font-weight: 500;
 				cursor: pointer;
@@ -41,6 +47,16 @@
 				color: white;
 				background: #1fcdcb;
 			}
+
+			.user_id {
+				border: 0;
+				border-radius: 5px;
+				height: 20px;
+				width: 200px;
+				padding: 3px;
+				font-size: 15px;
+				font-weight: 500;
+			}
 		</style>
 
 		<script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -49,19 +65,32 @@
 			let send = document.getElementById("btn_send");
 			tg.expand();
 
+			let message_text = document.querySelector('#text').value;
+			let user_id = document.querySelector('#user_id').value;
+
+			let data = {
+				message_text: message_text,
+				user_id: user_id
+			};
+
+			tg.sendData(JSON.stringify(data));
+
 			send.addEventListener("click", () => {
 				tg.close();
 			});
 		</script>
 	</head>
 	<body>
+		<center>
+			<img src="logotype.jpg" width="200" height="100" alt="logo">
+		</center>
 		<div class="parent_form_block">
 			<div class="child_form_block">
-				<form id="form_send_message">
-					<textarea id="text" class="text" name="text"></textarea>
-					<br />
-					<center><input type="button" id="btn_send" class="btn_send" value="Отправить"></center>
-				</form>
+				<h3>Сообщение</h3>
+				<textarea id="text" class="text" name="text"></textarea>
+				<h3>ID пользователя</h3>
+				<center><input type="text" name="user_id" id="user_id" class="user_id"></center>
+				<center><button id="btn_send" class="btn_send">Отправить</button></center>
 			</div>
 		</div>
 	</body>
