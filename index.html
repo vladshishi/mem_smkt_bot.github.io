@@ -62,9 +62,15 @@
 		<script src="https://telegram.org/js/telegram-web-app.js">
 			let tg = window.Telegram.WebApp;
 			let send = document.getElementById("btn_send");
+
+			tg.MainButton.textColor = "#FFFFFF";
+			tg.MainButton.color = "#FF0FF";
+			
 			tg.expand();
 
 			send.addEventListener("click", function(){
+				tg.MainButton.setText("Message was sent");
+				tg.MainButton.show();
 				tg.sendData("DATA");
 			});
 		</script>
