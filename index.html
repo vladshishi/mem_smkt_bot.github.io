@@ -4,6 +4,7 @@
 		<title>Отправить сообщение</title>
 		<meta charset="utf-8">
 
+		<!--
 		<style>
 			body {
 				background-color: #1fcdcb;
@@ -58,19 +59,34 @@
 				font-weight: 500;
 			}
 		</style>
+		-->
 	</head>
 	<body>
 		<script src="https://telegram.org/js/telegram-web-app.js"></script>
 		<script>
-			let tg = window.Telegram.WebApp;
-			let send = document.getElementById("btn_send");
-			tg.expand();
-
-			send.addEventListener("click", function() {
-				tg.sendData("HELLO");
-				//tg.close();
+			var MainButton = WebApp.MainButton;
+			var BackButton = WebApp.BackButton;
+			
+			MainButton.show();
+			BackButton.show();
+			
+			MainButton.onClick(function() {
+			  WebApp.showAlert("Хорошо, ты нажал на главную кнопку.");
+			});
+			WebApp.onEvent('mainButtonClicked', function() {
+			  /* also */
+			});
+			
+			BackButton.onClick(function() {
+			  WebApp.showAlert("Нет пути назад!");
+			  
+			  BackButton.hide();
+			});
+			WebApp.onEvent('backButtonClicked', function() {
+			  /* also */
 			});
 		</script>
+		<!--
 		<center>
 			<img src="logotype.jpg" width="200" height="100" alt="logo">
 		</center>
@@ -85,5 +101,6 @@
 				</div>
 			</form>
 		</div>
+		-->
 	</body>
 </html>
