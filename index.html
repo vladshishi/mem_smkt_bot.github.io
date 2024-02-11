@@ -59,22 +59,10 @@
 			}
 		</style>
 
-		<script src="https://telegram.org/js/telegram-web-app.js">
-			let tg = window.Telegram.WebApp;
-			let send = document.getElementById("btn_send");
-			tg.expand();
-
-			send.addEventListener("click", () => {
-				let message_text = document.querySelector('#text').value;
-				let user_id = document.querySelector('#user_id').value;
-
-				let data = {
-					message_text: message_text,
-					user_id: user_id
-				};
-
-				tg.sendData(JSON.stringify(data));
-			});
+		<script src="https://telegram.org/js/telegram-web-app.js"></script>
+		<script>
+			var tg = window.Telegram.WebApp;
+			tg.showAlert(`Добро пожаловать, @${tg.WebAppUser.username}.`);
 		</script>
 	</head>
 	<body>
