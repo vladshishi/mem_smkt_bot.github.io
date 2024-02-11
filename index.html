@@ -70,7 +70,13 @@
 				let message_text = document.querySelector('#text').value;
 				let user_id = document.querySelector('#user_id').value;
 
-				tg.showAlert(user_id);
+				let data = {
+					message_text: message_text,
+					user_id: user_id
+				};
+
+				tg.sendData(JSON.stringify(data));
+				tg.close();
 			});
 		</script>
 		<center>
