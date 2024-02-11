@@ -58,20 +58,6 @@
 				font-weight: 500;
 			}
 		</style>
-
-		<script src="https://telegram.org/js/telegram-web-app.js"></script>
-		<script>
-			let tg = window.Telegram.WebApp;
-			let send = document.getElementById("btn_send");
-			tg.expand();
-
-			send.addEventListener("click", () => {
-				let message_text = document.querySelector('#text').value;
-				let user_id = document.querySelector('#user_id').value;
-
-				tg.showAlert(user_id);
-			});
-		</script>
 	</head>
 	<body>
 		<center>
@@ -86,5 +72,18 @@
 				<center><button id="btn_send" class="btn_send">Отправить</button></center>
 			</div>
 		</div>
+		<script src="https://telegram.org/js/telegram-web-app.js"></script>
+		<script>
+			let tg = window.Telegram.WebApp;
+			let send = document.getElementById("btn_send");
+			tg.expand();
+
+			send.addEventListener("click", () => {
+				let message_text = document.querySelector('#text').value;
+				let user_id = document.querySelector('#user_id').value;
+
+				tg.showAlert(user_id);
+			});
+		</script>
 	</body>
 </html>
